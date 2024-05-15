@@ -98,7 +98,8 @@ fun DonutPieChart(
         }
     }
     Surface(
-        modifier = modifier
+        modifier = modifier,
+        color = Color.Transparent
     ) {
         val boxModifier = if (pieChartConfig.isClickOnSliceEnabled) {
             modifier
