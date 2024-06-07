@@ -252,7 +252,8 @@ object DataUtils {
                 BarData(
                     point = Point(
                         index.toFloat(),
-                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble())).toFloat()
+                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble()))
+                            .replace(',','.').toFloat()
                     ),
                     gradientColorList = listOf(
                         Color(
