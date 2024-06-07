@@ -211,14 +211,16 @@ object DataUtils {
             val point = when (barChartType) {
                 BarChartType.VERTICAL -> {
                     Point(
-                       index.toFloat(),
-                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble())).toFloat()
+                        index.toFloat(),
+                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble()))
+                            .replace(',','.').toFloat(),
                     )
                 }
 
                 BarChartType.HORIZONTAL -> {
                     Point(
-                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble())).toFloat(),
+                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble()))
+                            .replace(',','.').toFloat(),
                         index.toFloat()
                     )
                 }
@@ -250,7 +252,8 @@ object DataUtils {
                 BarData(
                     point = Point(
                         index.toFloat(),
-                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble())).toFloat()
+                        "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble()))
+                            .replace(',','.').toFloat()
                     ),
                     gradientColorList = listOf(
                         Color(
@@ -335,7 +338,8 @@ object DataUtils {
         for (index in 0 until listSize) {
             val barList = mutableListOf<BarData>()
             for (i in 0 until barSize) {
-                val barValue = "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble())).toFloat()
+                val barValue = "%.2f".format(Random.nextDouble(1.0, maxRange.toDouble()))
+                    .replace(',','.').toFloat()
                 barList.add(
                     BarData(
                         Point(
