@@ -2,6 +2,7 @@ package co.yml.charts.ui.linechart.model
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import co.yml.charts.axis.AxisData
 import co.yml.charts.common.model.AccessibilityConfig
@@ -34,7 +35,8 @@ data class LineChartData(
     val containerPaddingEnd: Dp = 15.dp,
     val backgroundColor: Color = Color.White,
     val gridLines: GridLines? = null,
-    val accessibilityConfig: AccessibilityConfig = AccessibilityConfig()
+    val accessibilityConfig: AccessibilityConfig = AccessibilityConfig(),
+    val scrollDirection: LayoutDirection = LayoutDirection.Ltr
 )
 
 /**

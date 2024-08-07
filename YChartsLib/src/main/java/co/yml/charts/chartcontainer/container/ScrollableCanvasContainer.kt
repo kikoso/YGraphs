@@ -56,7 +56,8 @@ fun ScrollableCanvasContainer(
     isPinchZoomEnabled: Boolean = true,
     onScroll: () -> Unit = {},
     onZoomInAndOut: () -> Unit = {},
-    scrollOrientation: Orientation = Orientation.Horizontal
+    scrollOrientation: Orientation = Orientation.Horizontal,
+    scrollDirection: LayoutDirection = LayoutDirection.Ltr
 ) {
     val scrollOffset = remember { mutableStateOf(0f) }
     val maxScrollOffset = remember { mutableStateOf(0f) }
@@ -89,7 +90,10 @@ fun ScrollableCanvasContainer(
                 }
                 .background(containerBackgroundColor)
                 .scrollable(
-                    state = scrollState, scrollOrientation, enabled = true
+                    state = scrollState,
+                    orientation = scrollOrientation,
+                    enabled = true,
+                    reverseDirection = (scrollDirection == LayoutDirection.Rtl)
                 )
                 .pointerInput(Unit) {
                     detectTapGestures(onTap = {
@@ -107,11 +111,27 @@ fun ScrollableCanvasContainer(
                 },
                 onDraw = {
                     maxScrollOffset.value = calculateMaxDistance(xZoom.value)
-                    onDraw(scrollOffset.value, xZoom.value)
+                    val currentValue = getScrollValue(scrollOffset.value, maxScrollOffset.value, scrollDirection)
+                    onDraw(currentValue, xZoom.value)
                 })
-            drawXAndYAxis(scrollOffset.value, xZoom.value)
+            val currentValue = getScrollValue(scrollOffset.value, maxScrollOffset.value, scrollDirection)
+            drawXAndYAxis(currentValue, xZoom.value)
         }
     }
+}
+
+/**
+ * Return the current scrollOffset considering the layoutDirection for draw functions
+ * @param currentScrollOffset: Current scroll offset.
+ * @param maxScrollOffset: Maximum scroll offset.
+ */
+fun getScrollValue(currentScrollOffset: Float, maxScrollOffset: Float, layoutDirection: LayoutDirection): Float {
+    val adjustedOffset = if (layoutDirection == LayoutDirection.Ltr)
+        currentScrollOffset
+    else
+        maxScrollOffset - currentScrollOffset
+
+    return checkAndGetMaxScrollOffset(adjustedOffset, maxScrollOffset)
 }
 
 /**
