@@ -239,7 +239,9 @@ fun LineChart(modifier: Modifier, lineChartData: LineChartData) {
                 onZoomInAndOut = {
                     isTapped = false
                     selectionTextVisibility = false
-                })
+                },
+                scrollDirection = scrollDirection
+            )
             if (isTalkBackEnabled) {
                     AccessibilityBottomSheetDialog(
                         modifier = Modifier.fillMaxSize(),
