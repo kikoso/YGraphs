@@ -322,10 +322,8 @@ Let's see how we can use the chart components and style them with available cust
     <div align = "center">
       <img width=238 src="https://github.com/AkYML/YCharts/assets/102035914/457b6034-eef0-4f70-bd40-0fc0e950298a" />
       <p>  Pie chart looks like this!</p>
-
-      <img width=238 src="https://github.com/AkYML/YCharts/assets/102035914/ac6eb6c7-033d-439b-b416-d6083ba0ee83" />
+       <img width=238 src="https://github.com/AkYML/YCharts/assets/102035914/ac6eb6c7-033d-439b-b416-d6083ba0ee83" />
       <p>  Pie chart with lables like this!</p>
-
     </div>
   </figure>
 
