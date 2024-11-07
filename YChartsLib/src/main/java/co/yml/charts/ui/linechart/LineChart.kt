@@ -144,12 +144,7 @@ fun LineChart(modifier: Modifier, lineChartData: LineChartData) {
                             .align(Alignment.BottomStart)
                             .onGloballyPositioned {
                                 rowHeight = it.size.height.toFloat()
-                            }
-                            .clip(
-                                RowClip(
-                                    columnWidth, paddingRight
-                                )
-                            ),
+                            },
                         xStart = columnWidth,
                         scrollOffset = scrollOffset,
                         zoomScale = xZoom,
