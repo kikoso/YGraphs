@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 35
     namespace = "co.yml.charts.components"
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
